@@ -22,16 +22,23 @@ The preview source and build notes are in `ports/tizen/` on the local developmen
 
 ## Tizen compatibility
 
+The Frame probe already ran Rust as native ARM machine code. The preview uses
+the same design. Tizen launches the signed .NET host, which loads the Rust
+library and connects it to the TV’s graphics, remote input and video playback.
+
 - **Tizen 5.0 (2019).** Our first target is the 2019 Samsung The Frame. The
   preview is built for it and awaits its first install and playback test.
 - **Tizen 5.5 (2020).** The same build may work after signing it for the
   target TV. Nuvio uses the same host for Tizen 5.0 and 5.5. Our preview is
   untested on 5.5.
 - **Tizen 6 and later.** We expect to reuse the Rust app code. Supporting
-  these versions will likely require changes to the Samsung .NET host that
-  loads Rust and connects it to the TV’s graphics and playback APIs.
+  these versions will likely require changes to the Samsung .NET host.
 
 [Nuvio’s Tizen host and package notes](https://github.com/iqui27/nuvio-native-legacy/blob/master/tizen-tpk/README.md)
+
+**WebAssembly on Tizen 5.5 and later.** A separate web app (`.wgt`) could run
+Rust compiled to WebAssembly in the TV’s web engine without a .NET host.
+[Samsung’s WebAssembly documentation](https://developer.samsung.com/smarttv/develop/extension-libraries/webassembly/overview.html)
 
 ## Credits
 
