@@ -11,9 +11,12 @@ that can be installed through Samsung Developer Mode without rooting the TV.
   uses Tizen Multimedia Player to play bundled H.264 video with AAC audio.
 - **Verified on the Mac.** The 1920×1080 preview rendered and passed navigation
   checks. The ARM build and signed Tizen package passed local checks.
-- **TV test pending.** A separate probe ran Rust, drew graphics, handled remote
-  input and played video with sound on the target Frame without root. The Plex
-  preview itself still needs its first install and playback test on that TV.
+- **Verified on the 2019 Frame.** The offline preview installed and launched
+  through Developer Mode on Tizen 5.0. The TV test confirmed the library
+  graphics, sample picture and sound, Left/Right navigation, pause and resume,
+  Back restoring the selected tile, and Home stopping audio.
+  With 0.1.1, the dedicated Play/Pause key worked without the Samsung
+  “Indisponible” popup.
 
 The preview has no Plex sign-in, connection to a Plex server or playback from a
 real Plex library. Search, subtitles, seeking, resume and broader TV compatibility
@@ -26,8 +29,7 @@ The Frame probe already ran Rust as native ARM machine code. The preview uses
 the same design. Tizen launches the signed .NET host, which loads the Rust
 library and connects it to the TV’s graphics, remote input and video playback.
 
-- **Tizen 5.0 (2019).** Our first target is the 2019 Samsung The Frame. The
-  preview is built for it and awaits its first install and playback test.
+- **Tizen 5.0 (2019).** The 2019 Samsung The Frame is our first target.
 - **Tizen 5.5 (2020).** The same build may work after signing it for the
   target TV. Nuvio uses the same host for Tizen 5.0 and 5.5. Our preview is
   untested on 5.5.
